@@ -9,5 +9,6 @@ public class JirehManageListMainController {
     @GetMapping("/home")
     public String jirehMainList(){
         return "manageList";
+
     }
 }
