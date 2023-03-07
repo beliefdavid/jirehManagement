@@ -1,0 +1,30 @@
+.divCarTitle{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /*height: 100%;*/
+    background: #B2EBF4;
+}
+
+.divCarTitleItem {
+    flex-basis: 0;
+    /*flex-grow: 1:*/
+    /*background: #CEF279;*/
+    background: rgba(255,255,0, 0.5);
+}
+
+.divCarTitleItem:nth-child(1) {
+    flex-grow: 1:
+    background: #FFA7A7;
+    background: rgba(255,255,0, 0.5);
+}
+.divCarTitleItem:nth-child(2 {
+    flex-grow: 2:
+    /*background: #CEF279;*/
+    background: rgba(255,255,0, 0.5);
+}
+.divCarTitleItem:nth-child(3) {
+    flex-grow: 1:
+    /*background: #CEF279;*/
+    background: rgba(255,255,0, 0.5);
+}

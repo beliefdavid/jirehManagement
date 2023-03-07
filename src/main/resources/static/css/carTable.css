@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+
+    		.table_1 {
+    			border:1px solid black;
+    			border-collapse:collapse;
+    			font-family: 'Dongle', sans-serif;
+    		}
+
+    		.table_1 tr {
+    			border:1px solid black;
+    			border-collapse:collapse;
+    		}
+
+    		.table_1 td {
+    			border:1px solid black;
+    			border-collapse:collapse;
+    		}
+
+    		.trGray  {
+    			background-color:lightgray;
+
+    			}
+    		.tdGray  {
+    			background-color:lightgray;
+    			font-weight:bold;
+
+    			}
+    		.trWhite  {
+                background-color:#FFF-FFF;
+            }
+            .tdWhite  {
+                background-color:#FFF-FFF;
+            }
+
+            .h1Font {
+                			font-family: 'Dongle', sans-serif;
+                		}
