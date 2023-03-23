@@ -10,4 +10,9 @@ public class ProductManageController {
     public String ProductList(){
         return "/product/productList";
     }
+
+    @GetMapping("/productAdd")
+    public String ProductAdd(){
+        return "/product/productAdd";
+    }
 }
