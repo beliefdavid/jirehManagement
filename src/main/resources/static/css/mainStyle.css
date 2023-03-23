@@ -1,4 +1,4 @@
-.drawsvg,svg {width: 100%; height: 300px}
+.drawsvg,svg {width: 100%; height: 150px}
 
 .stroke {stroke: #000; stroke-width: 1px; stroke-dasharray: 0 250;
     stroke-opacity: 1; fill: none;
