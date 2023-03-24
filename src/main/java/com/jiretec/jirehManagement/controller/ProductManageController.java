@@ -11,8 +11,8 @@ public class ProductManageController {
         return "/product/productList";
     }
 
-    @GetMapping("/productAdd")
+    @GetMapping("/productInOut")
     public String ProductAdd(){
-        return "/product/productAdd";
+        return "/product/productInOut";
     }
 }
