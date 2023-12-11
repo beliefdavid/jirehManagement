@@ -15,4 +15,9 @@ public class CarManageController {
     public String carSelect(){
         return "car/carSelect";
     }
+
+    @GetMapping("/carRegistration")
+    public String carRegistration() {
+        return "car/carRegistration";
+    }
 }

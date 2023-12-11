@@ -1,0 +1,38 @@
+{{>layouts/header}}
+
+<form class="contener" action="/carRegistration" method="post">
+
+    <div class="form">
+        <!-- 차량 제조사 -->
+        <div class="mb-3">
+            <label for="carMaker" class="form-label">제조사</label>
+            <input type="text" class="form-control form-control-lg" id="carMaker" aria-describedby="carMakerW" name="carMaker">
+            <div id="carMakerW" class="form-text">제조사를 입력하세요.</div>
+        </div>
+
+        <!-- 차량 이름 -->
+        <div class="mb-3">
+            <label for="carName" class="form-label">차량명</label>
+            <input type="text" class="form-control form-control-lg" id="carName" aria-describedby="carNameW" name="carName">
+            <div id="carNameW" class="form-text">차량명을 입력하세요.</div>
+        </div>
+
+        <!-- 차량 번호 -->
+        <div class="mb-3">
+            <label for="carNumber" class="form-label">차량번호</label>
+            <input type="text" class="form-control form-control-lg" id="carNumber" aria-describedby="carNumberW" name="carNumber">
+            <div id="carNumberW" class="form-text">차량 번호를 입력하세요.</div>
+        </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">
+        <br>등록</br>
+    </button>
+
+
+
+</form>
+
+
+{{>layouts/footer}}
