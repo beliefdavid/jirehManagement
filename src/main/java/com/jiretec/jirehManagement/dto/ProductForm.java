@@ -1,7 +1,11 @@
 package com.jiretec.jirehManagement.dto;
 
 import com.jiretec.jirehManagement.entity.Product;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor
+@ToString
 public class ProductForm {
     // 입출고
     private String productInOut;
@@ -19,31 +23,6 @@ public class ProductForm {
     private String productCheckNumber;
     //비고
     private String productBigo;
-
-    public ProductForm(String productInOut, String department, String requestor, String productName, String productMaker, String fieldName, String productCheckNumber, String productBigo) {
-        this.productInOut = productInOut;
-        this.department = department;
-        this.requestor = requestor;
-        this.productName = productName;
-        this.productMaker = productMaker;
-        this.fieldName = fieldName;
-        this.productCheckNumber = productCheckNumber;
-        this.productBigo = productBigo;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductForm{" +
-                "productInOut='" + productInOut + '\'' +
-                ", department='" + department + '\'' +
-                ", requestor='" + requestor + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productMaker='" + productMaker + '\'' +
-                ", fieldName='" + fieldName + '\'' +
-                ", productCheckNumber='" + productCheckNumber + '\'' +
-                ", productBigo='" + productBigo + '\'' +
-                '}';
-    }
 
     public Product toEntity() {
         return new Product(null, productInOut, department, requestor, productName, productMaker, fieldName, productCheckNumber, productBigo);

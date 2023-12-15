@@ -1,11 +1,16 @@
 package com.jiretec.jirehManagement.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@AllArgsConstructor
+@ToString
 public class Product {
     @Id //대표값을 지정! 주민등록증과 같은 역할
     @GeneratedValue // 1,2,3, ....  자동 생성 어노테이션!
@@ -35,32 +40,5 @@ public class Product {
     //비고
     @Column
     private String productBigo;
-
-
-    public Product(Long id, String productInOut, String department, String requestor, String productName, String productMaker, String fieldName, String productCheckNumber, String productBigo) {
-        this.id = id;
-        this.productInOut = productInOut;
-        this.department = department;
-        this.requestor = requestor;
-        this.productName = productName;
-        this.productMaker = productMaker;
-        this.fieldName = fieldName;
-        this.productCheckNumber = productCheckNumber;
-        this.productBigo = productBigo;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", productInOut='" + productInOut + '\'' +
-                ", department='" + department + '\'' +
-                ", requestor='" + requestor + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productMaker='" + productMaker + '\'' +
-                ", fieldName='" + fieldName + '\'' +
-                ", productCheckNumber='" + productCheckNumber + '\'' +
-                ", productBigo='" + productBigo + '\'' +
-                '}';
-    }
+    
 }
