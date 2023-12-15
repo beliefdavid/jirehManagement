@@ -1,6 +1,6 @@
 {{>layouts/header}}
 
-<form class="contener" action="/carRegistration" method="post">
+<form class="contener" action="/carRegistrationProc" method="post">
 
     <div class="form">
         <!-- 차량 제조사 -->
@@ -9,6 +9,16 @@
             <input type="text" class="form-control form-control-lg" id="carMaker" aria-describedby="carMakerW" name="carMaker">
             <div id="carMakerW" class="form-text">제조사를 입력하세요.</div>
         </div>
+
+        <!-- 차량 제조사 -->
+        <label for="productInOut" class="form-label">제조사</label>
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="productInOut" name="productInOut">
+            <option selected>제조사를 선택하세요.</option>
+            <option value="기아">기아</option>
+            <option value="르노삼성">르노삼성</option>
+            <option value="벤츠">벤츠</option>
+            <option value="현대">현대</option>
+        </select>
 
         <!-- 차량 이름 -->
         <div class="mb-3">
@@ -26,9 +36,16 @@
 
     </div>
 
-    <button type="submit" class="btn btn-outline-primary">
+<!--    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">-->
+    <button type="submit" class="fas fa-download fa-sm text-white-50">
         <br>등록</br>
     </button>
+
+    <a href="/productInOutWrite" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50">
+        </i>
+        자재 입고/출고
+    </a>
 
 
 
