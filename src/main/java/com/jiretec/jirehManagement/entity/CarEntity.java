@@ -26,6 +26,22 @@ public class CarEntity {
     @Column
     private String carNumber;
     @Column
-    private String carMove;
+    private String carUseDate;
+    @Column
+    private String carUserDepartment;
+    @Column
+    private String carUseName;
+    @Column
+    private String carPreMove;
+    @Column
+    private String carPostMove;
+    @Column
+    private String carResultMove;
+    @Column
+    private String carCommuteMove;
+    @Column
+    private String carWorkMove;
+    @Column
+    private String carBigo;
 
 }
