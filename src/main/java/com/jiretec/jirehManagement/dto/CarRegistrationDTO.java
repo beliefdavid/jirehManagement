@@ -14,7 +14,7 @@ public class CarRegistrationDTO {
     private String carNumber;
 
     public CarRegistrationEntity toEntity(){
-        return new CarRegistrationEntity(null, carMaker, carName, carNumber);
+        return new CarRegistrationEntity(null, carMaker, carName, carNumber );
     }
 
 }

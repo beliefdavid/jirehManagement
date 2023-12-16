@@ -26,5 +26,4 @@ public class CarRegistrationEntity {
     @Column
     private String carNumber;
 
-
 }
