@@ -1,7 +1,5 @@
 package com.jiretec.jirehManagement.entity;
 
-
-import jdk.jfr.Timespan;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
