@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+<form class="contener" action="/carMoveWriteProc" method="post">
+
+    <div class="form">
+        <!-- 차량 운행기록 -->
+        <div class="mb-3">
+            <label for="carMaker" class="form-label">운행기록</label>
+            <input type="text" class="form-control form-control-lg" id="carMaker" aria-describedby="carMakerW" name="carMaker">
+            <div id="carMakerW" class="form-text">운행한 키로수를 작성하시오.</div>
+        </div>
+
+
+
+        <button type="submit">등록!!!</button>
+    </div>
+
+</form>
+
+
+{{>layouts/footer}}
