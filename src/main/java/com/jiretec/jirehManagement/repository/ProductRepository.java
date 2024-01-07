@@ -1,7 +1,7 @@
 package com.jiretec.jirehManagement.repository;
 
-import com.jiretec.jirehManagement.entity.Product;
+import com.jiretec.jirehManagement.entity.ProductEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface ProductRepository extends CrudRepository<ProductEntity, Long> {
 }

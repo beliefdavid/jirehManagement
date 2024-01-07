@@ -1,6 +1,7 @@
 package com.jiretec.jirehManagement.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class CarEntity {
 

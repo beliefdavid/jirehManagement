@@ -1,7 +1,7 @@
 package com.jiretec.jirehManagement.controller;
 
-import com.jiretec.jirehManagement.dto.ProductForm;
-import com.jiretec.jirehManagement.entity.Product;
+import com.jiretec.jirehManagement.dto.ProductDTO;
+import com.jiretec.jirehManagement.entity.ProductEntity;
 import com.jiretec.jirehManagement.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,19 +27,19 @@ public class ProductManageController {
     }
 
     @PostMapping("/productInOutSummit")
-    public String ProductInOutSummit(ProductForm form) {
+    public String ProductInOutSummit(ProductDTO form) {
 
 //        System.out.println(form.toString());
         log.info(form.toString());
 
 
         //1.Dto를 변환! Entity!
-        Product product = form.toEntity();
+        ProductEntity productEntity = form.toEntity();
 //        System.out.println(product);
-        log.info(product.toString());
+        log.info(productEntity.toString());
 
         //2.Repository에게 Entity를 DB에 저장하게 일을 시킴!
-        Product saved = productRepository.save(product);
+        ProductEntity saved = productRepository.save(productEntity);
 //        System.out.println(saved);
         log.info(saved.toString());
 
