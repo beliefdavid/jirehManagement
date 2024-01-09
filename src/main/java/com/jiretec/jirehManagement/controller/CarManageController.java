@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -36,22 +35,6 @@ public class CarManageController {
     public String carSelect(){
         return "car/carSelect";
     }
-
-    /*
-    //2023.12.21 - 새롭게 작업한 자동차 등록 리스트: db에 등록한 차를 리스트로 보여주기!!!
-    @GetMapping("/carRegisterList/{carRegistrationId}")
-    public String carRegisterList(@PathVariable Long carRegistrationId, Model model) {
-
-        // 1: id를 Entity로 가져옴.
-        CarRegistrationEntity carRegistrationEntity = carRegistrationRepository.findById(carRegistrationId).orElse(null);
-
-        // 2: 가져온 데이터를 모델에 등록.
-        model.addAttribute("carRegistrationList", carRegistrationEntity);
-
-        // 3: 보여줄 페이지 설정.
-        return "car/carRegisterList";
-    }
-    */
 
     //2023.12.21 - 새롭게 작업한 자동차 등록 리스트: db에 등록한 차의 전체리스트로 보여주기!!!
     @GetMapping("/carRegistrationList")
@@ -78,10 +61,10 @@ public class CarManageController {
     @PostMapping("/carRegistrationProc")
     public String carRegistrationProc(CarRegistrationDTO carDTO) {
 
-        CarRegistrationEntity carEntity = carDTO.toEntity();
-        log.info(carEntity.toString());
+        CarRegistrationEntity carRegistrationEntity = carDTO.toEntity();
+        log.info(carRegistrationEntity.toString());
 
-        CarRegistrationEntity saved = carRegistrationRepository.save(carEntity);
+        CarRegistrationEntity saved = carRegistrationRepository.save(carRegistrationEntity);
         log.info(saved.toString());
 
         return "redirect:/carRegistrationList";
@@ -102,7 +85,6 @@ public class CarManageController {
         CarEntity saved = carRepository.save(carEntity);
         log.info(saved.toString());
 
-
-        return "";
+        return "redirect:/carDaily/" + saved.getCarId() ;
     }
 }
