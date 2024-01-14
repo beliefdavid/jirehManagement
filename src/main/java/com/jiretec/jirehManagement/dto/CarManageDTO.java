@@ -1,20 +1,20 @@
 package com.jiretec.jirehManagement.dto;
 
-import com.jiretec.jirehManagement.entity.CarRegistrationEntity;
+import com.jiretec.jirehManagement.entity.CarManageEntity;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 
 @AllArgsConstructor
 @ToString
-public class CarRegistrationDTO {
+public class CarManageDTO {
 
     private String carMaker;
     private String carName;
     private String carNumber;
 
-    public CarRegistrationEntity toEntity(){
-        return new CarRegistrationEntity(null, carMaker, carName, carNumber );
+    public CarManageEntity toEntity(){
+        return new CarManageEntity(null, carMaker, carName, carNumber );
     }
 
 }

@@ -1,16 +1,17 @@
 package com.jiretec.jirehManagement.controller;
 
 import com.jiretec.jirehManagement.dto.CarDTO;
-import com.jiretec.jirehManagement.dto.CarRegistrationDTO;
+import com.jiretec.jirehManagement.dto.CarManageDTO;
 import com.jiretec.jirehManagement.entity.CarEntity;
-import com.jiretec.jirehManagement.entity.CarRegistrationEntity;
-import com.jiretec.jirehManagement.repository.CarRegistrationRepository;
+import com.jiretec.jirehManagement.entity.CarManageEntity;
+import com.jiretec.jirehManagement.repository.CarManageRepository;
 import com.jiretec.jirehManagement.repository.CarRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 public class CarManageController {
 
     @Autowired
-    private CarRegistrationRepository carRegistrationRepository;
+    private CarManageRepository carManageRepository;
 
     @Autowired
     private CarRepository carRepository;
@@ -30,11 +31,13 @@ public class CarManageController {
         return "car/dailyCarMove";
     }
 
+    /*
     //이전에 사용한 자동차 등록 리스트
     @GetMapping("/carMainList")
     public String carSelect(){
         return "car/carSelect";
     }
+    */
 
     //2023.12.21 - 새롭게 작업한 자동차 등록 리스트: db에 등록한 차의 전체리스트로 보여주기!!!
     @GetMapping("/carRegistrationList")
@@ -42,34 +45,70 @@ public class CarManageController {
 
         // 1: 모든 등록된 차의 리스트를 가져온다.
         //CarRegistrationEntity carRegistrationEntity = carRegistrationRepository.findById(carRegistrationId).orElse(null);
-
-        List<CarRegistrationEntity> carRegisterList = carRegistrationRepository.findAll();
-
+        List<CarManageEntity> carRegisterList = carManageRepository.findAll();
 
         // 2: 가져온 데이터를 모델에 등록.
         model.addAttribute("carRegistrationList", carRegisterList);
 
         // 3: 보여줄 페이지 설정.
-        return "car/carRegistrationList";
+        return "car/registration/carRegistrationList";
     }
 
+    //차량 등록 페이지 이동.
     @GetMapping("/carRegistration")
     public String carRegistration() {
-        return "car/carRegistration";
+        return "car/registration/carRegistration";
     }
 
+    //차량 등록작업
     @PostMapping("/carRegistrationProc")
-    public String carRegistrationProc(CarRegistrationDTO carDTO) {
+    public String carRegistrationProc(CarManageDTO carDTO) {
 
-        CarRegistrationEntity carRegistrationEntity = carDTO.toEntity();
-        log.info(carRegistrationEntity.toString());
+        CarManageEntity carManageEntity = carDTO.toEntity();
+        log.info(carManageEntity.toString());
 
-        CarRegistrationEntity saved = carRegistrationRepository.save(carRegistrationEntity);
+        CarManageEntity saved = carManageRepository.save(carManageEntity);
         log.info(saved.toString());
 
         return "redirect:/carRegistrationList";
 
     }
+
+    // 1.차량 업데이트 및 삭제페이지로 이동!!
+    @GetMapping("/carEditDel")
+    public String carEditDelManage(Model model) {
+
+        // 1: 모든 등록된 차의 리스트를 가져온다.
+        //CarRegistrationEntity carRegistrationEntity = carRegistrationRepository.findById(carRegistrationId).orElse(null);
+        List<CarManageEntity> carRegisterList = carManageRepository.findAll();
+
+        // 2: 가져온 데이터를 모델에 등록.
+        model.addAttribute("carRegistrationList", carRegisterList);
+
+        // 3: 보여줄 페이지 설정.
+        return "car/editDel/carEditDelManage";
+    }
+
+    //1-1.차량 업데이트 작업
+    @GetMapping("/carEdit/{carRegistrationId}")
+    public String carEdit(@PathVariable Long carRegistrationId, Model model){
+
+        //수정할 데이터를 가져오기!
+        CarManageEntity carManageEntity = carManageRepository.findById(carRegistrationId).orElse(null);
+
+        //모델에 데이터를 등록!
+        model.addAttribute("carRegistration", carManageEntity);
+
+
+        //뷰페이지 설정!
+        return "car/editDel/carEdit";
+    }
+
+
+
+
+    //차량 삭제 작업
+
 
     @GetMapping("/carMoveWrite")
     public String carMove(){

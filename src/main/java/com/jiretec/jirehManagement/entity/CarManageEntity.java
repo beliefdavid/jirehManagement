@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CarRegistrationEntity {
+public class CarManageEntity {
 
     @Id
     @GeneratedValue

@@ -1,7 +1,6 @@
 package com.jiretec.jirehManagement.dto;
 
 import com.jiretec.jirehManagement.entity.CarEntity;
-import com.jiretec.jirehManagement.entity.CarRegistrationEntity;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
