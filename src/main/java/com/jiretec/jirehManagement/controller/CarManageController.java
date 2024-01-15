@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -89,7 +90,7 @@ public class CarManageController {
         return "car/editDel/carEditDelManage";
     }
 
-    //1-1.차량 업데이트 작업
+    //1-1.차량 수정화면으로 이동.
     @GetMapping("/carEdit/{carRegistrationId}")
     public String carEdit(@PathVariable Long carRegistrationId, Model model){
 
@@ -102,6 +103,24 @@ public class CarManageController {
 
         //뷰페이지 설정!
         return "car/editDel/carEdit";
+    }
+
+    //1-2. 차량 업데이트 작업
+
+    @PostMapping("/carUpdate")
+    public String carUpdate(CarManageDTO carManageDTO){
+
+        CarManageEntity carManageEntity = carManageDTO.toEntity();
+        log.info(carManageEntity.toString());
+
+        CarManageEntity target = carManageRepository.findById(carManageEntity.getCarRegistrationId()).orElse(null);
+
+        if (target != null){
+            carManageRepository.save(carManageEntity);
+        }
+
+
+        return "redirect:/carEdit/" + carManageEntity.getCarRegistrationId();
     }
 
 

@@ -9,12 +9,13 @@ import lombok.ToString;
 @ToString
 public class CarManageDTO {
 
+    private Long carRegistrationId;
     private String carMaker;
     private String carName;
     private String carNumber;
 
     public CarManageEntity toEntity(){
-        return new CarManageEntity(null, carMaker, carName, carNumber );
+        return new CarManageEntity(carRegistrationId, carMaker, carName, carNumber );
     }
 
 }
