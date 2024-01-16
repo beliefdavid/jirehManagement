@@ -106,7 +106,6 @@ public class CarManageController {
     }
 
     //1-2. 차량 업데이트 작업
-
     @PostMapping("/carUpdate")
     public String carUpdate(CarManageDTO carManageDTO){
 
@@ -120,7 +119,7 @@ public class CarManageController {
         }
 
 
-        return "redirect:/carEdit/" + carManageEntity.getCarRegistrationId();
+        return "redirect:/carEditDel";
     }
 
 
