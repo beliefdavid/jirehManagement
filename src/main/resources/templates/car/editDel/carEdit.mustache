@@ -1,0 +1,57 @@
+{{>layouts/header}}
+
+
+<form class="contener" action="/carEditDel" method="post">
+
+    {{#carRegistration}}
+        <div class="form">
+            <input name="carRegistrationId" type="hidden" value="{{carRegistrationId}}" />
+            <!-- 차량 제조사 -->
+            <div class="mb-3">
+                <label for="carMaker" class="form-label">제조사</label>
+                <input type="text" class="form-control form-control-lg" id="carMaker" aria-describedby="carMakerW" name="carMaker" value="{{carMaker}}">
+                <div id="carMakerW" class="form-text">제조사를 입력하세요.</div>
+            </div>
+
+            <!-- 차량 제조사 -->
+            <label for="productInOut" class="form-label">제조사</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="productInOut" name="productInOut">
+                <option selected>제조사를 선택하세요.</option>
+                <option value="기아">기아</option>
+                <option value="르노삼성">르노삼성</option>
+                <option value="벤츠">벤츠</option>
+                <option value="현대">현대</option>
+            </select>
+
+            <!-- 차량 이름 -->
+            <div class="mb-3">
+                <label for="carName" class="form-label">차량명</label>
+                <input type="text" class="form-control form-control-lg" id="carName" aria-describedby="carNameW" name="carName" value="{{carName}}">
+                <div id="carNameW" class="form-text">차량명을 입력하세요.</div>
+            </div>
+
+            <!-- 차량 번호 -->
+            <div class="mb-3">
+                <label for="carNumber" class="form-label">차량번호</label>
+                <input type="text" class="form-control form-control-lg" id="carNumber" aria-describedby="carNumberW" name="carNumber" value="{{carNumber}}">
+                <div id="carNumberW" class="form-text">차량 번호를 입력하세요.</div>
+            </div>
+
+        </div>
+    {{/carRegistration}}
+    <!--    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">-->
+    <button type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <br>등록</br>
+    </button>
+
+    <a href="/carUpDel" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+        <i class="fas fa-download fa-sm text-white-50">
+        </i>
+        Back!!!
+    </a>
+
+
+</form>
+
+
+{{>layouts/footer}}

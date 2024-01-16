@@ -1,0 +1,41 @@
+{{>layouts/header}}
+
+<!-- contents -->
+<div class="bg-dark text-white p-5">
+    <h1>차량 수정 및 삭제 페이지입니다.</h1>
+    <article>
+        {{#carRegistrationList}}
+            <button type="button" class="btn btn-outline-primary">
+                <a href="/carDaily">
+                    <!--<img src="images/tucson.png" alt="투싼 145모 7359" width="500" height="250" > -->
+                    <img src="images/tucson.png" width="500" height="250" >
+                    {{carRegistrationId}}
+                    <br>{{carName}} : {{carNumber}} </br>
+                </a>
+                <a href="/carEdit/{{carRegistrationId}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50">
+                    </i>
+                    수정
+                </a>
+                <a href="/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <i class="fas fa-download fa-sm text-white-50">
+                    </i>
+                    삭제
+                </a>
+            </button>
+        {{/carRegistrationList}}
+
+
+    </article>
+
+    <article>
+        <a href="/carRegistrationList" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-download fa-sm text-white-50">
+            </i>
+            Back!!!
+        </a>
+    </article>
+
+</div>
+
+{{>layouts/footer}}
