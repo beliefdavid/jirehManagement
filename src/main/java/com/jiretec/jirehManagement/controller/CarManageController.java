@@ -1,11 +1,8 @@
 package com.jiretec.jirehManagement.controller;
 
-import com.jiretec.jirehManagement.dto.CarDTO;
 import com.jiretec.jirehManagement.dto.CarManageDTO;
-import com.jiretec.jirehManagement.entity.CarEntity;
 import com.jiretec.jirehManagement.entity.CarManageEntity;
 import com.jiretec.jirehManagement.repository.CarManageRepository;
-import com.jiretec.jirehManagement.repository.CarRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -24,21 +20,10 @@ public class CarManageController {
     @Autowired
     private CarManageRepository carManageRepository;
 
-    @Autowired
-    private CarRepository carRepository;
-
     @GetMapping("/carDaily")
     public String carManageList() {
         return "car/dailyCarMove";
     }
-
-    /*
-    //이전에 사용한 자동차 등록 리스트
-    @GetMapping("/carMainList")
-    public String carSelect(){
-        return "car/carSelect";
-    }
-    */
 
     //2023.12.21 - 새롭게 작업한 자동차 등록 리스트: db에 등록한 차의 전체리스트로 보여주기!!!
     @GetMapping("/carRegistrationList")
@@ -122,26 +107,7 @@ public class CarManageController {
         return "redirect:/carEditDel";
     }
 
-
-
-
     //차량 삭제 작업
 
 
-    @GetMapping("/carMoveWrite")
-    public String carMove(){
-        return "car/carMoveWrite";
-    }
-
-    @PostMapping("carMoveWriteProc")
-    public String carMoveWriteProc(CarDTO carDTO){
-
-        CarEntity carEntity = carDTO.toEntity();
-        log.info(carEntity.toString());
-
-        CarEntity saved = carRepository.save(carEntity);
-        log.info(saved.toString());
-
-        return "redirect:/carDaily/" + saved.getCarId() ;
-    }
 }
