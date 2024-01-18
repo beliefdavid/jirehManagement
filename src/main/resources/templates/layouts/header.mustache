@@ -13,6 +13,15 @@
         <link href="css/carTable.css" rel="stylesheet">
         <link href="css/mainStyle.css" rel="stylesheet">
         <link href="css/projectStyle.css" rel="stylesheet">
+
+        <!-- alert msg -->
+        {{#msg}}
+            <div class="alert alert-primary alert-dismissible">
+                {{msg}}
+                <button type="button" class="btn-close" date-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {{/msg}}
+
     </head>
 
     <body class="p-3 m-0 border-0 bd-example">

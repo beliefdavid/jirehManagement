@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -108,6 +109,21 @@ public class CarManageController {
     }
 
     //차량 삭제 작업
+    @GetMapping("/carDelete/{carRegistrationId}")
+    public String carDelete(@PathVariable Long carRegistrationId, RedirectAttributes rttr){
+        log.info("삭제 요청이 들어왔습니다!!!");
+
+        CarManageEntity target = carManageRepository.findById(carRegistrationId).orElse(null);
+
+        log.info(target.toString());
+
+        if(target != null){
+            carManageRepository.delete(target);
+            rttr.addFlashAttribute("msg", "< "+ target.getCarName()+" : "+target.getCarNumber() + " >" +"의 데이터가 삭제되었습니다.");
+        }
+
+        return "redirect:/carEditDel";
+    }
 
 
 }
